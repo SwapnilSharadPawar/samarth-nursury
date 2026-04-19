@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Trash2, MessageSquare, Clock } from 'lucide-react';
 
@@ -8,7 +8,7 @@ const MessagesTab = () => {
 
   const fetchMessages = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/messages');
+      const res = await axios.get('https://samarth-nursury.onrender.com/api/messages');
       setMessages(res.data);
     } catch (err) {
       console.error(err);
@@ -24,7 +24,7 @@ const MessagesTab = () => {
   const handleDelete = async (id) => {
     if(!window.confirm("Are you sure you want to delete this message?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/messages/${id}`);
+      await axios.delete(`https://samarth-nursury.onrender.com/api/messages/${id}`);
       fetchMessages();
     } catch (err) {
       console.error(err);
@@ -78,3 +78,4 @@ const MessagesTab = () => {
 };
 
 export default MessagesTab;
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Package, Plus, Trash2, Image as ImageIcon } from 'lucide-react';
 
@@ -15,7 +15,7 @@ const ProductsTab = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/products');
+      const res = await axios.get('https://samarth-nursury.onrender.com/api/products');
       setProducts(res.data);
     } catch (err) {
       console.error(err);
@@ -40,7 +40,7 @@ const ProductsTab = () => {
     formData.append('image', image);
 
     try {
-      await axios.post('http://localhost:5000/api/products', formData, {
+      await axios.post('https://samarth-nursury.onrender.com/api/products', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       // Reset form
@@ -61,7 +61,7 @@ const ProductsTab = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this product?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/products/${id}`);
+      await axios.delete(`https://samarth-nursury.onrender.com/api/products/${id}`);
       fetchProducts();
     } catch (err) {
       console.error(err);
@@ -158,7 +158,7 @@ const ProductsTab = () => {
               <div key={product._id} className="border border-eco-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group">
                 <div className="h-48 bg-zinc-100 relative overflow-hidden">
                   {product.imageUrl ? (
-                    <img src={`http://localhost:5000${product.imageUrl}`} alt={product.name} className="w-full h-full object-cover" />
+                    <img src={`https://samarth-nursury.onrender.com${product.imageUrl}`} alt={product.name} className="w-full h-full object-cover" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">No Image</div>
                   )}
@@ -187,3 +187,4 @@ const ProductsTab = () => {
 };
 
 export default ProductsTab;
+

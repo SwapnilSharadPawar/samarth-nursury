@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -23,7 +23,7 @@ const Home = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/blogs');
+                const res = await axios.get('https://samarth-nursury.onrender.com/api/blogs');
                 setBlogs(res.data.slice(0, 3)); // Only show latest 3
             } catch (err) {
                 console.error("Error fetching blogs:", err);
@@ -34,10 +34,10 @@ const Home = () => {
 
         const fetchBanners = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/banners');
+                const res = await axios.get('https://samarth-nursury.onrender.com/api/banners');
                 const activeHeroes = res.data.filter(b => b.type === 'hero' && b.isActive);
                 if (activeHeroes.length > 0) {
-                    setHeroBanners(activeHeroes.map(b => ({ ...b, mediaUrl: `http://localhost:5000${b.mediaUrl}` })));
+                    setHeroBanners(activeHeroes.map(b => ({ ...b, mediaUrl: `https://samarth-nursury.onrender.com${b.mediaUrl}` })));
                 }
             } catch (err) {
                 console.error("Error fetching banners:", err);
@@ -46,7 +46,7 @@ const Home = () => {
 
         const fetchSettings = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/settings');
+                const res = await axios.get('https://samarth-nursury.onrender.com/api/settings');
                 if (res.data && res.data.phone) {
                     setContactDetails({ phone: res.data.phone, email: res.data.email });
                 }
@@ -88,7 +88,7 @@ const Home = () => {
                 email: formData.contact.includes('@') ? formData.contact : '',
                 phone: !formData.contact.includes('@') ? formData.contact : ''
             };
-            await axios.post('http://localhost:5000/api/messages', payload);
+            await axios.post('https://samarth-nursury.onrender.com/api/messages', payload);
             setStatus('Message sent successfully!');
             setFormData({ name: '', contact: '', message: '' });
         } catch (err) {
@@ -265,9 +265,9 @@ const Home = () => {
                                                 allowFullScreen
                                             ></iframe>
                                         ) : blog.type === 'video' ? (
-                                            <video src={`http://localhost:5000${blog.mediaUrl}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" muted loop autoPlay playsInline />
+                                            <video src={`https://samarth-nursury.onrender.com${blog.mediaUrl}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" muted loop autoPlay playsInline />
                                         ) : blog.mediaUrl ? (
-                                            <img src={`http://localhost:5000${blog.mediaUrl}`} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                                            <img src={`https://samarth-nursury.onrender.com${blog.mediaUrl}`} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                                         ) : (
                                             <div className="w-full h-full flex flex-col items-center justify-center text-zinc-400">
                                                 <BookOpen size={32} className="mb-2 opacity-50" />
@@ -377,3 +377,4 @@ const Home = () => {
 };
 
 export default Home;
+

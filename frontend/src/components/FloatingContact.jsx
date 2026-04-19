@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -13,7 +13,7 @@ const FloatingContact = () => {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/settings');
+                const res = await axios.get('https://samarth-nursury.onrender.com/api/settings');
                 if (res.data && res.data.phone) {
                     setPhone(res.data.phone);
                 }
@@ -66,7 +66,7 @@ const FloatingContact = () => {
                         {/* Body Container */}
                         <div className="space-y-4">
                             <div className="bg-eco-50 rounded-xl p-3 text-sm text-gray-700 leading-relaxed border border-eco-100">
-                                Hello! 👋 Looking for organic agriculture solutions? 
+                                Hello! ðŸ‘‹ Looking for organic agriculture solutions? 
                                 <br/><br/>
                                 Give us a call or book directly below.
                             </div>
@@ -107,3 +107,4 @@ const FloatingContact = () => {
 };
 
 export default FloatingContact;
+

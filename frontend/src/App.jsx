@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+﻿import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import ClientLayout from './components/ClientLayout';
 import Home from './pages/Home';
 import About from './pages/About';
@@ -32,3 +32,4 @@ function App() {
 }
 
 export default App;
+

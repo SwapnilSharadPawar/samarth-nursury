@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Image as ImageIcon, Video, Plus, Trash2, Images } from 'lucide-react';
 
@@ -13,7 +13,7 @@ const BannersTab = () => {
 
   const fetchBanners = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/banners');
+      const res = await axios.get('https://samarth-nursury.onrender.com/api/banners');
       setBanners(res.data);
     } catch (err) {
       console.error(err);
@@ -37,7 +37,7 @@ const BannersTab = () => {
     formData.append('media', media);
 
     try {
-      await axios.post('http://localhost:5000/api/banners', formData, {
+      await axios.post('https://samarth-nursury.onrender.com/api/banners', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       // Reset form
@@ -56,7 +56,7 @@ const BannersTab = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this banner?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/banners/${id}`);
+      await axios.delete(`https://samarth-nursury.onrender.com/api/banners/${id}`);
       fetchBanners();
     } catch (err) {
       console.error(err);
@@ -137,9 +137,9 @@ const BannersTab = () => {
               <div key={banner._id} className="border border-eco-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow group relative">
                 <div className="h-48 bg-zinc-100 relative">
                   {banner.mediaUrl && isVideo(banner.mediaUrl) ? (
-                    <video src={`http://localhost:5000${banner.mediaUrl}`} className="w-full h-full object-cover" muted loop autoPlay playsInline />
+                    <video src={`https://samarth-nursury.onrender.com${banner.mediaUrl}`} className="w-full h-full object-cover" muted loop autoPlay playsInline />
                   ) : banner.mediaUrl ? (
-                    <img src={`http://localhost:5000${banner.mediaUrl}`} className="w-full h-full object-cover" alt="Banner" />
+                    <img src={`https://samarth-nursury.onrender.com${banner.mediaUrl}`} className="w-full h-full object-cover" alt="Banner" />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400">No Media</div>
                   )}
@@ -170,3 +170,4 @@ const BannersTab = () => {
 };
 
 export default BannersTab;
+

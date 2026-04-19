@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { MessageSquare, Package, Images, BookOpen } from 'lucide-react';
 
@@ -14,7 +14,7 @@ const OverviewTab = ({ setActiveTab }) => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/stats');
+        const res = await axios.get('https://samarth-nursury.onrender.com/api/stats');
         setStats(res.data);
       } catch (err) {
         console.error("Error fetching stats:", err);
@@ -94,3 +94,4 @@ const OverviewTab = ({ setActiveTab }) => {
 };
 
 export default OverviewTab;
+

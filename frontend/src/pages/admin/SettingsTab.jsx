@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Settings, Save, Phone, Mail } from 'lucide-react';
 
@@ -11,7 +11,7 @@ const SettingsTab = () => {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/settings');
+                const res = await axios.get('https://samarth-nursury.onrender.com/api/settings');
                 if (res.data) setSettings({ phone: res.data.phone, email: res.data.email });
             } catch (err) {
                 console.error(err);
@@ -28,7 +28,7 @@ const SettingsTab = () => {
         setStatus({ type: '', msg: '' });
         
         try {
-            await axios.post('http://localhost:5000/api/settings', settings);
+            await axios.post('https://samarth-nursury.onrender.com/api/settings', settings);
             setStatus({ type: 'success', msg: 'Settings saved successfully!' });
         } catch (err) {
             console.error(err);
@@ -109,3 +109,4 @@ const SettingsTab = () => {
 };
 
 export default SettingsTab;
+

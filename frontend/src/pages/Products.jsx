@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -27,7 +27,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get('http://localhost:5000/api/products');
+        const res = await axios.get('https://samarth-nursury.onrender.com/api/products');
         setProducts(res.data);
       } catch (err) {
         console.error('Error fetching products:', err);
@@ -115,7 +115,7 @@ const Products = () => {
                   <div className="h-56 bg-zinc-100 relative overflow-hidden">
                     {product.imageUrl ? (
                       <img 
-                        src={`http://localhost:5000${product.imageUrl}`} 
+                        src={`https://samarth-nursury.onrender.com${product.imageUrl}`} 
                         alt={product.name} 
                         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                       />
@@ -151,3 +151,4 @@ const Products = () => {
 };
 
 export default Products;
+

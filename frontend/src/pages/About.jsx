@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from 'framer-motion';
 import { Leaf, Sprout, ShieldCheck, HeartPulse, Recycle, Droplets } from 'lucide-react';
 
@@ -76,7 +76,7 @@ const About = () => {
                         We understand that the success of a harvest entirely depends on the quality of the seed and the vitality of the soil. That's why every plant we nurture and every seed we sell undergoes rigorous quality checks. 
                     </p>
                     <p className="text-lg text-zinc-600 leading-relaxed">
-                        By utilizing 100% natural fertilizers and promoting sustainable eco-friendly practices, we aren't just selling agricultural supplies—we are preserving the future of our ecosystem. Let's build a greener world together.
+                        By utilizing 100% natural fertilizers and promoting sustainable eco-friendly practices, we aren't just selling agricultural suppliesâ€”we are preserving the future of our ecosystem. Let's build a greener world together.
                     </p>
                 </motion.div>
             </div>
@@ -114,3 +114,4 @@ const About = () => {
 };
 
 export default About;
+

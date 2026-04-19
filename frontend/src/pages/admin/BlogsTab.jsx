@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BookOpen, Plus, Trash2, Video, Image as ImageIcon, Link as LinkIcon, PlayCircle } from 'lucide-react';
 
@@ -17,7 +17,7 @@ const BlogsTab = () => {
 
   const fetchBlogs = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/blogs');
+      const res = await axios.get('https://samarth-nursury.onrender.com/api/blogs');
       setBlogs(res.data);
     } catch (err) {
       console.error(err);
@@ -49,7 +49,7 @@ const BlogsTab = () => {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/blogs', formData, {
+      await axios.post('https://samarth-nursury.onrender.com/api/blogs', formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       // Reset form
@@ -71,7 +71,7 @@ const BlogsTab = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this blog post?")) return;
     try {
-      await axios.delete(`http://localhost:5000/api/blogs/${id}`);
+      await axios.delete(`https://samarth-nursury.onrender.com/api/blogs/${id}`);
       fetchBlogs();
     } catch (err) {
       console.error(err);
@@ -218,3 +218,4 @@ const BlogsTab = () => {
 };
 
 export default BlogsTab;
+

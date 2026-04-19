@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BookOpen, PlayCircle } from 'lucide-react';
 
@@ -9,7 +9,7 @@ const Blogs = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/blogs');
+                const res = await axios.get('https://samarth-nursury.onrender.com/api/blogs');
                 setBlogs(res.data);
             } catch (err) {
                 console.error("Error fetching blogs:", err);
@@ -68,7 +68,7 @@ const Blogs = () => {
                                     ) : blog.type === 'video' ? (
                                         <div className="w-full h-full relative">
                                             <video 
-                                                src={`http://localhost:5000${blog.mediaUrl}`} 
+                                                src={`https://samarth-nursury.onrender.com${blog.mediaUrl}`} 
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                                                 controls 
                                                 playsInline 
@@ -80,7 +80,7 @@ const Blogs = () => {
                                     ) : blog.mediaUrl ? (
                                         <div className="w-full h-full relative">
                                             <img 
-                                                src={`http://localhost:5000${blog.mediaUrl}`} 
+                                                src={`https://samarth-nursury.onrender.com${blog.mediaUrl}`} 
                                                 alt={blog.title} 
                                                 className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                                             />
@@ -116,3 +116,4 @@ const Blogs = () => {
 };
 
 export default Blogs;
+

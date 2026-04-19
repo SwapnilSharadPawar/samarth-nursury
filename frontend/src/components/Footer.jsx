@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { Leaf, MapPin, Phone, Mail } from 'lucide-react';
 
@@ -68,3 +68,4 @@ const Footer = () => {
 };
 
 export default Footer;
+

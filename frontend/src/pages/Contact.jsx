@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send } from 'lucide-react';
@@ -11,7 +11,7 @@ const Contact = () => {
     useEffect(() => {
         const fetchSettings = async () => {
             try {
-                const res = await axios.get('http://localhost:5000/api/settings');
+                const res = await axios.get('https://samarth-nursury.onrender.com/api/settings');
                 if (res.data && res.data.phone) {
                     setContactDetails({ phone: res.data.phone, email: res.data.email });
                 }
@@ -31,7 +31,7 @@ const Contact = () => {
                 email: formData.contact.includes('@') ? formData.contact : '',
                 phone: !formData.contact.includes('@') ? formData.contact : ''
             };
-            await axios.post('http://localhost:5000/api/messages', payload);
+            await axios.post('https://samarth-nursury.onrender.com/api/messages', payload);
             setStatus('Message sent successfully!');
             setFormData({ name: '', contact: '', message: '' });
         } catch (err) {
@@ -145,3 +145,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
